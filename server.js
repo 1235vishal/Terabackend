@@ -142,10 +142,10 @@ const PORT = process.env.PORT || 10000; // Changed to 10000 for Render
 
 // Debug: Log environment status
 console.log('=== ENVIRONMENT CHECK ===');
-console.log('NODE_ENV:', process.env.NODE_ENV || 'development');
-console.log('DB_HOST:', process.env.DB_HOST ? 'Set' : 'NOT SET - THIS IS THE PROBLEM!');
-console.log('DB_USER:', process.env.DB_USER ? 'Set' : 'NOT SET');
-console.log('DB_NAME:', process.env.DB_NAME ? 'Set' : 'NOT SET');
+console.log('NODE_ENV:', process.env.NODE_ENV || 'production');
+console.log('DB_HOST:', process.env.DB_HOST ? 'srv1497.hstgr.io' : 'NOT SET - THIS IS THE PROBLEM!');
+console.log('DB_USER:', process.env.DB_USER ? 'u484397615_Tera' : 'NOT SET');
+console.log('DB_NAME:', process.env.DB_NAME ? 'u484397615_Tera' : 'NOT SET');
 console.log('PORT:', PORT);
 
 // Middleware
@@ -175,7 +175,7 @@ app.get('/api/health', (req, res) => {
     res.status(200).json({
         success: true,
         message: 'Server is running',
-        environment: process.env.NODE_ENV || 'development'
+        environment: process.env.NODE_ENV || 'production'
     });
 });
 
@@ -207,7 +207,7 @@ app.use((err, req, res, next) => {
     res.status(500).json({
         success: false,
         message: 'Internal server error',
-        error: process.env.NODE_ENV === 'development' ? err.message : undefined
+        error: process.env.NODE_ENV === 'production' ? err.message : undefined
     });
 });
 
@@ -262,7 +262,7 @@ const startServer = async () => {
         // Start server FIRST
         app.listen(PORT, () => {
             console.log(`✅ Server is running on port ${PORT}`);
-            console.log(`✅ Environment: ${process.env.NODE_ENV || 'development'}`);
+            console.log(`✅ Environment: ${process.env.NODE_ENV || 'production'}`);
             console.log(`✅ CORS origin: ${process.env.CORS_ORIGIN || 'http://localhost:3000'}`);
             console.log(`✅ Health check: http://localhost:${PORT}/api/health`);
             console.log(`✅ DB test: http://localhost:${PORT}/api/test-db`);
