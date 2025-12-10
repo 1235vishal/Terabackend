@@ -143,7 +143,7 @@ const PORT = process.env.PORT || 10000; // Changed to 10000 for Render
 // Debug: Log environment status
 console.log('=== ENVIRONMENT CHECK ===');
 console.log('NODE_ENV:', process.env.NODE_ENV || 'production');
-console.log('DB_HOST:', process.env.DB_HOST ? 'srv1497.hstgr.io' : 'NOT SET - THIS IS THE PROBLEM!');
+console.log('DB_HOST:', process.env.DB_HOST ? '193.203.184.105' : 'NOT SET - THIS IS THE PROBLEM!');
 console.log('DB_USER:', process.env.DB_USER ? 'u484397615_Tera' : 'NOT SET');
 console.log('DB_NAME:', process.env.DB_NAME ? 'u484397615_Tera' : 'NOT SET');
 console.log('PORT:', PORT);
