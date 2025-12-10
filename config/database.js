@@ -6,9 +6,9 @@ dotenv.config();
 const pool = mysql.createPool({
     host: process.env.DB_HOST || 'localhost',
     port: process.env.DB_PORT || 3306,
-    user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || '',
-    database: process.env.DB_NAME || 'terawine_admin',
+    user: process.env.DB_USER || 'u484397615_Tera',
+    password: process.env.DB_PASSWORD || 'Tera@1235',
+    database: process.env.DB_NAME || 'u484397615_Tera',
     ssl: {
         rejectUnauthorized: false // Required for Hostinger
     },
@@ -18,3 +18,5 @@ const pool = mysql.createPool({
 });
 
 module.exports = pool;
+
+

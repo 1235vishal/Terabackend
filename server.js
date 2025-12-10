@@ -24,8 +24,15 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
+// app.use(cors({
+//     origin: process.env.CORS_ORIGIN || 'http://localhost:5000',
+//     credentials: true,
+//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+//     allowedHeaders: ['Content-Type', 'Authorization']
+// }));
+// To this:
 app.use(cors({
-    origin: process.env.CORS_ORIGIN || 'https://demo.damsole.com',
+    origin: process.env.CORS_ORIGIN || 'http://localhost:3000', // ✅ Frontend port
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     allowedHeaders: ['Content-Type', 'Authorization']
@@ -93,7 +100,7 @@ const startServer = async () => {
         app.listen(PORT, () => {
             console.log(`✓ Server is running on http://localhost:${PORT}`);
             console.log(`✓ Environment: ${process.env.NODE_ENV || 'development'}`);
-            console.log(`✓ CORS origin: ${process.env.CORS_ORIGIN || 'https://demo.damsole.com'}`);
+            console.log(`✓ CORS origin: ${process.env.CORS_ORIGIN || 'http://localhost:5000'}`);
         });
     } catch (error) {
         console.error('Failed to start server:', error.message);
